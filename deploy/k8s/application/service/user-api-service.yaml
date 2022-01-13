@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-api
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: user-api-app
+  type: ClusterIP

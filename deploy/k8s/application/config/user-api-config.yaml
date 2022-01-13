@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-api-config
+data:
+  SPRING_PROFILES_ACTIVE: prod
+  JAVA_TOOL_OPTIONS: -XX:+UseContainerSupport -XX:MaxRAMPercentage=80 -XX:InitialHeapSize=256m -XX:MaxHeapSize=512m
+  SPRING_ADMIN_URL: http://spring-admin/spring-admin
+  SERVER_SERVLET_CONTEXT_PATH: /user-api

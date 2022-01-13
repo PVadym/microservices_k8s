@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: user-api
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080/spring-admin
+        instance:
+          prefer-ip: true
+          metadata:
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+        username: ${SPRING_ADMIN_USERNAME:admin}
+        password: ${SPRING_ADMIN_PASSWORD:admin}
+  security:
+    user:
+      name: ${SPRING_ADMIN_CLIENT_USERNAME:client}
+      password: ${SPRING_ADMIN_CLIENT_PASSWORD:client}
+
+server:
+  port: 8082
+  shutdown: graceful
+  servlet:
+    context-path: /user-api
+
+management:
+  server:
+    port: 8092
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+      show-details: always
+

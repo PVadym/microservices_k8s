@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: kube.192.168.49.2.nip.io
+      http:
+        paths:
+          - path: /spring-admin
+            pathType: Prefix
+            backend:
+              service:
+                name:  spring-admin
+                port:
+                  number: 80
+          - path: /pet-api
+            pathType: Prefix
+            backend:
+              service:
+                name: pet-api
+                port:
+                  number: 80
+          - path: /user-api
+            pathType: Prefix
+            backend:
+              service:
+                name: user-api
+                port:
+                  number: 80

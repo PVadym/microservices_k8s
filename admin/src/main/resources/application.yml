@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /spring-admin
+
+spring:
+  application:
+    name: spring-admin
+
+  security:
+    user:
+      name: ${SPRING_ADMIN_USERNAME:admin}
+      password: ${SPRING_ADMIN_PASSWORD:admin}
+
+management:
+  server:
+    port: 8090
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+      show-details: always
