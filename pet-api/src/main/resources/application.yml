@@ -19,6 +19,24 @@ spring:
       name: ${SPRING_ADMIN_CLIENT_USERNAME:client}
       password: ${SPRING_ADMIN_CLIENT_PASSWORD:client}
 
+  datasource:
+    url: jdbc:postgresql://localhost:5434/pets_db
+    password: postgres
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.jdbc.batch_size: 20
+      hibernate.format_sql: true
+      hibernate.generate_statistics: true
+      hibernate.use_sql_comments: true
+
+
 
 server:
   port: 8081

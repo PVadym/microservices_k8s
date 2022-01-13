@@ -9,3 +9,20 @@ spring:
     admin:
       client:
         url: ${SPRING_ADMIN_URL:http://spring-admin/spring-admin}
+
+  datasource:
+    url: ${POSTGRES_DB_HOST}
+    password: ${POSTGRES_DB_USERNAME}
+    username: ${POSTGRES_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.jdbc.batch_size: 20
+      hibernate.format_sql: false
+      hibernate.generate_statistics: false
+      hibernate.use_sql_comments: false

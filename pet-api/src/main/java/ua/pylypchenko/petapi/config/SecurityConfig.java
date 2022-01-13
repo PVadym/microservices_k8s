@@ -20,6 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
+                .antMatchers("/cats")
                 .antMatchers( SWAGGER_AUTH_WHITELIST)
                 .antMatchers("/actuator/health/**");
     }
